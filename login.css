@@ -1,0 +1,476 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic);
+
+html,
+body {
+    height: 100%;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-position: 100% 100% !important;
+}
+
+.fullscreen,
+.content-a {
+    width: 100%;
+    min-height: 100%;
+}
+
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height: 100%;
+    overflow: hidden;
+}
+
+.content-a {
+    position: relative;
+}
+
+.content-b {
+    text-align: center;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Open Sans', sans-serif !important;
+}
+
+.logoWrapper {
+    position: absolute;
+    left: 20px;
+    top: 4px;
+    display: none;
+}
+
+.logoWrapper img {
+    width: 200px;
+    height: auto;
+}
+
+.contentWrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+
+.login-outer {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.login-wrapper {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 15px 0;
+    border-radius: 10px;
+    display: none;
+    margin: auto;
+    width: 475px;
+}
+
+.login-head {
+    font-size: 35px;
+    color: #ef6000;
+    line-height: 50px;
+    font-weight: 400;
+}
+
+.loginForm {
+    padding: 20px 20px 0;
+    position: relative;
+}
+
+.frmField {
+    padding-bottom: 13px;
+}
+
+.frmTxtbox {
+    height: 45px;
+    line-height: 45px;
+    background: rgba(0, 0, 0, 0.1);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: none;
+    padding: 0 20px;
+    width: 90%;
+    color: #EF6000;
+    font-size: 17px;
+}
+
+.frmBtm {
+    margin: auto;
+    padding: 0 0 20px;
+    width: 90%;
+}
+
+.loginLnk,
+.loginLnk:hover,
+.loginLnk:focus {
+    width: 110px;
+    display: block;
+    background: #ef6000;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+    line-height: 35px;
+    text-decoration: none;
+    float: left;
+}
+
+.forgotLnk {
+    color: #EF6000;
+    text-decoration: underline;
+    float: right;
+}
+
+.forgotLnk:hover {
+    color: #EF6000;
+    text-decoration: none;
+}
+
+input:invalid,
+.invalid_box {
+    border: 1px solid #ff8686!important;
+}
+
+.invalid_errors {
+    color: #D42D31;
+    font-size: 13px;
+    line-height: 18px;
+    display: none;
+}
+
+.invalid_errors_success {
+    color: #26BA3B;
+}
+
+.loginForm .invalid_errors {
+    position: absolute;
+    top: -3px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+}
+
+.clear {
+    clear: both;
+    line-height: 1px;
+}
+
+.content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 46px;
+    color: #FFF;
+    line-height: 46px;
+    text-align: center;
+    margin: auto;
+    position: relative;
+    text-align: center;
+    width: 630px;
+    display: none;
+    margin-top: 15%;
+    text-transform: uppercase;
+}
+
+.content span {
+    z-index: 999;
+    position: relative;
+}
+
+.content img {
+    position: absolute;
+    display: none;
+    right: -20px;
+    top: -145px;
+    z-index: 9;
+}
+
+.smallContent {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    color: #FFF;
+    margin: auto;
+    padding-top: 20px;
+    text-align: center;
+    width: 630px;
+    line-height: 25px;
+    display: none;
+}
+
+.footer {
+    font-family: 'Open Sans', sans-serif;
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.80);
+    display: none;
+}
+
+.footer span {
+    padding: 0 20px;
+}
+
+.signBtm a {
+    margin: auto;
+    float: none;
+}
+
+.successMsg,
+.errorMsg {
+    position: absolute;
+    display: none;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9;
+}
+
+.frmPad {
+    padding: 20px 0;
+}
+
+.signup-wrapper {
+    width: 775px;
+    padding: 10px 0;
+}
+
+.signup-wrapper .frmTxt {
+    width: 300px;
+}
+
+.checkbox-label {
+    font-size: 13px;
+    text-align: left;
+    line-height: 24px;
+    padding-left: 18px;
+    display: block;
+}
+
+.checkbox-label-txt {
+    line-height: 18px;
+}
+
+div.checker {
+    position: relative;
+    display: -moz-inline-box;
+    display: block;
+    vertical-align: middle;
+    zoom: 1;
+    float: left;
+    margin: 0 8px 0 0;
+}
+
+div.checker input {
+    width: 24px;
+    height: 24px;
+    opacity: 0;
+    filter: alpha(opacity:0);
+    display: inline-block;
+    background: none;
+}
+
+div.checker span {
+    background: url(../images/checkbox/check-off.png) no-repeat;
+    height: 21px;
+    width: 21px;
+    display: -moz-inline-box;
+    display: inline-block;
+    text-align: center;
+}
+
+div.checker span.checked {
+    background: url(../images/checkbox/check-on.png) no-repeat;
+}
+
+.checker label {
+    display: inline-block;
+    cursor: pointer;
+    padding-left: 10px;
+    margin-right: 65px;
+    font-size: 18px;
+    color: #5e5e68;
+    font-family: 'Open Sans', sans-serif;
+    padding-top: 3px;
+}
+
+.signup-wrapper .login-head {
+    font-size: 36px;
+}
+
+.checkbox-label a {
+    color: #ef6000;
+    text-decoration: underline;
+}
+
+.checkbox-label a:hover {
+    color: #ef6000;
+    text-decoration: none;
+}
+
+.signup-wrapper .loginForm .invalid_errors {
+    top: 0;
+}
+
+.loginLnk.signupLnk {
+    float: right;
+}
+
+.frmField .radios {
+    width: 90%;
+    margin: auto;
+}
+
+.checkboxes {
+    float: left;
+}
+
+.has-js .frmField .label_check,
+.has-js .frmField .label_radio {
+    padding-right: 34px;
+}
+
+.frmField .radios label {
+    float: left;
+}
+
+.loginLnk i.fa {
+    font-size: 14px !important;
+}
+
+.selector {
+    overflow: visible !important;
+    margin-left: 60px;
+    width: 330px !important;
+}
+
+div.selector {
+    /*background: rgba(208,210,211,0.2); */
+    background: rgba(0, 0, 0, 0.1);
+    border: 0 none;
+    line-height: 50px;
+    height: 50px;
+    display: inline-block;
+    vertical-align: middle;
+    zoom: 1;
+    margin: 0;
+    padding: 0 0 0 15px;
+    cursor: pointer;
+    font-size: 18px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+div.selector span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #EF6000;
+    padding: 0px 32px 0px 2px;
+    background: url(../images/set_arrow.png) no-repeat 100.5%;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    line-height: 50px;
+    text-align: left;
+}
+
+div.selector select {
+    position: absolute;
+    opacity: 0;
+    filter: alpha(opacity:0);
+    height: 50px;
+    border: none;
+    background: none;
+    font-size: 18px;
+    border: solid 1px white;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    color: rgba(7, 7, 7, 0.6);
+    max-width: 460px;
+}
+
+div.selector.disabled,
+div.selector.disabled.active {
+    background: #dddddd;
+}
+
+#country-div {
+    display: none;
+}
+
+.loginFormWrapper {
+    display: none;
+}
+
+.login-left {
+    float: left;
+    width: 40%;
+    margin: 20px 5%;
+    background: rgba(239, 96, 0, 0.8);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.login-left a,
+.login-left a:hover,
+.login-left a:focus {
+    padding: 10px 0;
+    color: #FFF;
+    font-size: 16px;
+    text-decoration: none;
+    display: block;
+    text-transform: uppercase;
+}
+
+.login-sub-head {
+    font-size: 25px;
+    color: #000;
+    line-height: 50px;
+    font-weight: 400;
+}
+
+.signupLnk1,
+.signupLnk1:hover {
+    float: none;
+    margin: auto;
+}
+
+.langWrapper {
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    z-index: 9999;
+}
+
+.bootstrap-select .btn,
+.bootstrap-select .btn-default:hover,
+.bootstrap-select .btn-default:focus,
+.bootstrap-select .btn-default:active,
+.bootstrap-select .btn-default.active,
+.bootstrap-select.open .dropdown-toggle.btn-default {
+    background: rgba(255, 255, 255, 0.8) !important;
+    color: #000 !important;
+}
+
+.bootstrap-select:not([class*="col-"]):not([class*="form-control"]):not(.input-group-btn) {
+    width: 180px !important;
+}
+
+.bootstrap-select .btn {
+    padding: 0 12px;
+}
