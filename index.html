@@ -1,0 +1,1181 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title data-translate="_page_title">Amber Fleet</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link href="css/login.css" rel="stylesheet" type="text/css">
+    <link href="css/animate.css" rel="stylesheet" type="text/css">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="css/popup.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-reset.css" rel="stylesheet" type="text/css">
+    <link href="css/bootstrap-select.css" rel="stylesheet" type="text/css">
+    <link href="css/form-component.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+    <div class="fullscreen background" style="background-image: url(images/bg.jpg);" data-img-width="1600" data-img-height="1067">
+        <div class="content-a">
+            <div class="content-b">
+                <div class="logoWrapper"><img src="images/logo.png" alt=""></div>
+                <div class="langWrapper">
+                    <label style="width: 100%;color:#fff;" data-translate="_page_login_select_language">Select Your Language</label>
+                    <select id="langSwitch" name="langSwitch" class="selectpicker" onChange="changeLang(this.value)">
+                        <option value="en" selected="selected">English</option>
+                        <option value="es">Spanish</option>
+                    </select>
+                </div>
+                <div class="contentWrapper">
+                    <div class="login-outer">
+                        <div class="login-wrapper">
+                            <div class="loginForm loginTypeWrapper">
+                                <div data-translate="_page_heading" class="login-head">Login As</div>
+                                <div class="clearfix">
+                                    <div class="login-left">
+                                        <a href="javascript:;" onClick="userLogin('fleet')">
+                                    	<img src="images/fleet-logo.png" alt=""><br>
+										<span data-translate="_page_type_1">Admin & Groups</span>
+                                    </a>
+                                    </div>
+                                    <div class="login-left">
+                                        <a href="javascript:;" onClick="userLogin('driver')">
+                                    	<img src="images/driver-logo.png" alt=""><br>
+										<span data-translate="_page_type_2">Fleet Driver</span>
+                                    </a>
+                                    </div>
+                                </div>
+                                <div class="login-sub-head" data-translate="_page_type_alt">-OR-</div>
+                                <div class="frmBtm">
+                                    <a href="signup" class="loginLnk signupLnk1" data-translate="_page_type_3">Signup</a>
+                                    <div class="clear"></div>
+                                </div>
+                            </div>
+                            <div class="loginFormWrapper">
+                                <div class="login-head" data-translate="_page_login">Login</div>
+                                <div class="loginForm">
+                                    <div class="errorMsg">
+                                        <div class="alert alert-danger alert-dismissible" role="alert"></div>
+                                    </div>
+                                    <div class="frmField">
+                                        <input class="frmTxtbox" type="text" id="fleetId" name="fleetId" value="" data-translate="_page_login_id" placeholder="Fleet Id" />
+                                    </div>
+                                    <div class="frmField">
+                                        <input class="frmTxtbox" type="text" id="username" name="username" data-translate="_page_login_user" value="" placeholder="User Name / Email" />
+                                    </div>
+                                    <div class="frmField">
+                                        <input class="frmTxtbox" type="password" id="password" name="password" value="" data-translate="_page_login_pass" placeholder="Password" onkeydown="if(event.keyCode == 13){ loginClk()}" />
+                                    </div>
+                                    <div class="frmField">
+                                        <div style="color: #ef6000;" data-translate="_page_login_type">User Type</div>
+                                        <div class="radios clearfix">
+                                            <label for="radio-00" class="label_radio">
+                                                <input type="radio" checked='checked' value="ADMIN" id="radio-00" name="userType"> <span data-translate="_page_login_type_1">ADMIN</span>
+                                            </label>
+                                            <label for="radio-01" class="label_radio">
+                                                <input type="radio" value="GROUP" id="radio-01" name="userType"> <span data-translate="_page_login_type_2">GROUP</span>
+                                            </label>
+                                            <label for="radio-02" class="label_radio">
+                                                <input type="radio" value="SUBGROUP" id="radio-02" name="userType"> <span data-translate="_page_login_type_3">SUBGROUP</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="frmBtm">
+                                        <a href="javascript:;" class="loginLnk" onclick="loginClk();" data-translate="_page_login">Login</a>
+                                        <a href="javascript:;" onClick="cancelClk()" class="loginLnk signupLnk" data-translate="_page_cancel">Cancel</a>
+                                        <div class="clear"></div>
+                                    </div>
+                                    <div class="frmBtm">
+                                        <div class="checkboxes">
+                                            <label for="check" class="">
+                                                <input id="check" type="checkbox" checked data-translate="_page_remember"> <span data-translate="_page_remember">Remember Me</span></label>
+                                        </div>
+                                        <a href="forgot-password" class="forgotLnk" data-translate="_page_forgot">Forgot Password?</a>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer" data-translate="_page_copyright">&copy; 2017 Amber Connect Ltd. All rights reserved.</div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="selLang" name="selLang" value="en">
+    <script>
+    if (typeof module === 'object') {
+        window.module = module;
+        module = undefined;
+    }
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.0.0.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/form-component.js"></script>
+    <script src="js/jquery.uniform.js"></script>
+    <script src="js/jquery.cookie.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        "use strict";
+
+        var dictionary, set_lang;
+
+        dictionary = {
+            "english": {
+                "_page_title": "Amber Fleet",
+                "_page_heading": "Login As",
+                "_page_type_1": "Admin & Groups",
+                "_page_type_2": "Fleet Driver",
+                "_page_type_alt": "-OR-",
+                "_page_type_3": "Signup",
+                "_page_login": "Login",
+                "_page_login_id": "Fleet Id",
+                "_page_login_user": "User Name / Email",
+                "_page_login_pass": "Password",
+                "_page_login_type": "User Type",
+                "_page_login_type_1": "ADMIN",
+                "_page_login_type_2": "GROUP",
+                "_page_login_type_3": "SUBGROUP",
+                "_page_cancel": "Cancel",
+                "_page_remember": "Remember Me",
+                "_page_forgot": "Forgot Password?",
+                "_page_login_select_language": "Select Your Language",
+                "_page_copyright": "&copy; 2017 Amber Connect Ltd. All rights reserved."
+            },
+            "spanish": {
+                "_page_title": "Amber Parque Móvil",
+                "_page_heading": "Iniciar sesión como",
+                "_page_type_1": "Administrador y Grupos",
+                "_page_type_2": "Conductor del Parque Móvil",
+                "_page_type_alt": "-O-",
+                "_page_type_3": "Regístrate",
+                "_page_login": "Iniciar sesión",
+                "_page_login_id": "Identificación del Parque Móvil",
+                "_page_login_user": "Nombre de Usuario, Email",
+                "_page_login_pass": "Contraseña",
+                "_page_login_type": "Tipo de usuario",
+                "_page_login_type_1": "Administrador",
+                "_page_login_type_2": "Grupo",
+                "_page_login_type_3": "Subgrupo",
+                "_page_cancel": "Cancelar",
+                "_page_remember": "Recuérdame",
+                "_page_forgot": "Olvidaste la contraseña?",
+                "_page_login_select_language": "Seleccionar el idioma",
+                "_page_copyright": "&copy; 2017 Amber Connect Ltd. Todos los derechos reservados."
+            }
+        };
+
+        set_lang = function(dictionary) {
+            $("[data-translate]").html(function() {
+                var key = $(this).data("translate");
+                if (dictionary.hasOwnProperty(key)) {
+                    return dictionary[key];
+                }
+            });
+            $("input[data-translate]").attr('placeholder', function() {
+                var key = $(this).data("translate");
+                if (dictionary.hasOwnProperty(key)) {
+                    return dictionary[key];
+                }
+            });
+        };
+
+        set_lang(dictionary.english);
+    });
+    $(window).load(function() {
+        animate();
+        load_em();
+        $('input[type=checkbox]').uniform();
+    });
+
+    function animate() {
+        $('.logoWrapper').addClass('fadeInLeft animated').show();
+        $('.langWrapper').addClass('fadeInRight animated').show();
+        setTimeout(function() {
+            contentAnimate();
+        }, 1000);
+    }
+
+    function contentAnimate() {
+        $('.login-wrapper').addClass('fadeInDown animated').show();
+        setTimeout(function() {
+            footerAnimate();
+        }, 1000);
+    }
+
+    function footerAnimate() {
+        $('.footer').addClass('fadeInUp animated').show();
+    }
+
+    function userLogin(loginType) {
+        if (loginType == 'driver') {
+            window.location.href = "https://customer.amberconnect.com/driver-login";
+        } else {
+            $('.loginTypeWrapper').hide();
+            $('.loginFormWrapper').show();
+        }
+    }
+
+    function cancelClk() {
+        $('.loginFormWrapper').hide();
+        $('.loginTypeWrapper').show();
+    }
+
+    function loginClk() {
+        $('.invalid_errors').hide();
+        var fleetId = $('#fleetId').val();
+        var uName = $('#username').val().toLowerCase();
+        var uPass = $('#password').val();
+        var userType = $('input[name=userType]:checked').val();
+        var selLang = $('#selLang').val();
+        if (fleetId == '') {
+            $('#fleetId').addClass('invalid_box').focus();
+            return false;
+        } else if (uName == '') {
+            $('#username').addClass('invalid_box').focus();
+            return false;
+        } else if (uPass == '') {
+            $('#password').addClass('invalid_box').focus();
+            return false;
+        } else {
+            $('.invalid_errors').hide();
+            $('.loginLnk').eq(0).html('Loading <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>');
+            $.ajax({
+                type: "POST",
+                url: "ajax/login",
+                data: {
+                    fleetId: fleetId,
+                    username: uName,
+                    password: uPass,
+                    userType: userType,
+                    loginType: 'Y'
+                },
+                success: function(msg) {
+                    var results = msg.split("~~");
+                    if ($.trim(results[0]) == 'Y') {
+                        remember_me();
+                        //window.location.href = "dashboard";
+                    } else {
+                        if ($.trim(selLang) == 'es') {
+                            $('.loginLnk').eq(0).text("Iniciar sesión");
+                        } else {
+                            $('.loginLnk').eq(0).text("Login");
+                        }
+                        $('.errorMsg .alert').text("Error! " + results[1]);
+                        $('.errorMsg').fadeIn(1000).delay(3000).fadeOut(1000);
+                        $('#username').focus();
+                    }
+                }
+            });
+        }
+    }
+
+    function remember_me() {
+        var c = $("#check");
+
+        if (c.is(":checked")) {
+            var f = $('#fleetId').val();
+            var u = $("#username").val();
+            var p = $("#password").val();
+            var ut = $('input[name=userType]:checked').val();
+            $.cookie("fleetid", f, { expires: 365 });
+            $.cookie("username", u, { expires: 365 });
+            $.cookie("password", p, { expires: 365 });
+            $.cookie("usertype", ut, { expires: 365 });
+            if ($.cookie("fleetid") != "" && $.cookie("username") != "" && $.cookie("password") != "" && $.cookie("usertype") != "") {
+                window.location.href = "dashboard";
+            }
+        } else {
+            var f = $('#fleetId').val();
+            var u = $("#username").val();
+            var p = $("#password").val();
+            var ut = $('input[name=userType]:checked').val();
+
+            if ($.cookie("fleetid") == f && $.cookie("username") == u && $.cookie("password") == p && $.cookie("usertype") == ut) {
+                $.removeCookie('fleetid');
+                $.removeCookie('username');
+                $.removeCookie('password');
+                $.removeCookie('usertype');
+            }
+            window.location.href = "dashboard";
+        }
+    }
+
+    function load_em() {
+        var f = $.cookie("fleetid");
+        var u = $.cookie("username");
+        var p = $.cookie("password");
+
+        $("#fleetId").val(f);
+        $("#username").val(u);
+        $("#password").val(p);
+    }
+
+    function changeLang(lang) {
+        $.ajax({
+            type: "POST",
+            url: "ajax/changeLang",
+            data: {
+                lang: lang
+            },
+            success: function(data) {
+                if ($.trim(data) == 'Y') {
+                    location.reload();
+                }
+            }
+        });
+    }
+
+    $('input, textarea').on('keydown', function() {
+        $(this).removeClass('invalid_box');
+    });
+    </script>
+    <script>
+    $(function() {
+        "use strict";
+
+        var dictionary, set_lang;
+
+        dictionary = {
+            "english": {
+                "_page_title": "Amber Fleet",
+                "_page_left_menu_1": "Dashboard",
+                "_page_left_menu_2": "Bird’s-Eye View",
+                "_page_left_menu_3": "Trips",
+                "_page_left_menu_4": "Tracking",
+                "_page_left_menu_4_1": "Live Tracking",
+                "_page_left_menu_4_2": "Breadcrumb Tracking",
+                "_page_left_menu_5": "Reports",
+                "_page_left_menu_5_1": "Fleet Summary Report",
+                "_page_left_menu_5_2": "Individual Report",
+                "_page_left_menu_5_3": "Comparison Report",
+                "_page_left_menu_5_4": "Highlights Report",
+                "_page_left_menu_5_5": "Exception Report",
+                "_page_left_menu_5_6": "Maintenance Report",
+                "_page_left_menu_6": "Route Optimization",
+                "_page_left_menu_6_1": "Create Route",
+                "_page_left_menu_6_2": "Manage Route",
+                "_page_left_menu_6_3": "Route Compliance",
+                "_page_left_menu_6_3_1": "Vehicles",
+                "_page_left_menu_6_3_2": "Routes",
+                "_page_left_menu_7": "Group Management",
+                "_page_left_menu_8": "Driver Management",
+                "_page_left_menu_8_1": "Manage Driver",
+                "_page_left_menu_8_2": "Assign Driver",
+                "_page_left_menu_8_3": "Manage Schedule",
+                "_page_left_menu_8_3_1": "Vehicle",
+                "_page_left_menu_8_3_2": "Driver",
+                "_page_left_menu_8_4": "Reports",
+                "_page_left_menu_8_4_1": "Summary Report",
+                "_page_left_menu_8_4_2": "Time Sheet Report",
+                "_page_left_menu_8_4_3": "Trips Report",
+                "_page_left_menu_9": "Devices",
+                "_page_left_menu_9_1": "Device Management",
+                "_page_left_menu_9_2": "Device Subscription",
+                "_page_left_menu_10": "Alerts",
+                "_page_left_menu_11": "Settings",
+                "_page_left_menu_11_1": "Profile",
+                "_page_left_menu_11_1_1": "Change Password",
+                "_page_left_menu_11_1_2": "Units",
+                "_page_left_menu_11_1_3": "Manage Alerts",
+                "_page_left_menu_11_1_4": "Change Language",
+                "_page_left_menu_11_2": "Vehicle",
+                "_page_left_menu_11_2_1": "Vehicle Info",
+                "_page_left_menu_11_2_2": "Safety",
+                "_page_left_menu_11_2_3": "Odometer",
+                "_page_left_menu_11_2_4": "Fuel",
+                "_page_left_menu_11_2_5": "Service Reminders",
+                "_page_left_menu_11_3": "Geo Fence",
+                "_page_left_menu_11_3_1": "Single Fence",
+                "_page_left_menu_11_3_2": "Multiple Fence",
+                "_page_left_menu_11_4": "Expense Log",
+                "_page_left_menu_11_4_1": "Fuel Log",
+                "_page_left_menu_11_4_2": "Service Log",
+                "_page_left_menu_11_5": "Vehicle Documents",
+                "_page_left_menu_11_5_1": "Driver’s License",
+                "_page_left_menu_11_5_2": "Insurance",
+                "_page_left_menu_11_5_3": "Registration",
+                "_page_left_menu_11_5_4": "Fitness",
+                "_page_left_menu_11_6": "Amber Shield",
+                "_page_left_menu_11_7": "Session Info",
+                "_page_left_menu_12": "Tips",
+                "_page_left_menu_13": "Help",
+                "_page_left_menu_14": "SOS",
+                "_page_left_menu_15": "Mute",
+                "_page_left_menu_16": "Un Mute",
+                "_page_left_menu_17": "Logout",
+                "_page_group": "Groups",
+                "_page_sub_group": "Subgroups",
+                "_page_devices": "Active Devices",
+                "_page_driver_login": "Driver Logins",
+                "_page_kpi": "Key Performance Indicators :",
+                "_page_kpi_1": "Total Distance Travelled",
+                "_page_kpi_2": "Time Spent Idling",
+                "_page_kpi_3": "Fuel Expenditure",
+                "_page_kpi_4": "Total Engine Run Time",
+                "_page_kpi_5": "Time Spent Idling Cost",
+                "_page_kpi_6": "Total Maintenance Cost",
+                "_page_kpi_7": "Driving Behaviour",
+                "_page_kpi_8": "Harsh Braking",
+                "_page_kpi_9": "Speeding",
+                "_page_kpi_10": "Sudden Acceleration",
+                "_page_kpi_11": "Time Spent Idling",
+                "_page_dash_chart_title": "Individual Vehicle Reports for the Last 30 Days",
+                "_page_dash_chart_title_1": "Fuel Consumption – Top 10 Vehicles",
+                "_page_dash_chart_title_1_1": "Fuel Settings",
+                "_page_dash_chart_title_2": "Idling Time – Top 10 Vehicles",
+                "_page_dash_chart_title_3": "Distance Covered – Top 10 Vehicles",
+                "_page_dash_chart_title_4": "Speed – Top 10 Vehicles",
+                "_page_dash_chart_title_5": "Driving Time – Top 10 Vehicles",
+                "_page_dash_chart_title_6": "Trip Count – Top 10 Vehicles",
+                "_page_overall_title": "Overall Fleet Reports",
+                "_Page_overall_title1": "Total Distance Covered per Day",
+                "_Page_overall_title2": "Total Number of Trips per Day",
+                "_Page_overall_title3": "Total Time Spent Idling per Day",
+                "_Page_overall_title4": "Peak Driving Time",
+                "_Page_overall_lastdays": "Last 10 Days",
+                "_page_default_page": "Home",
+                "_page_select_date_time": "Select Date and Time",
+                "_Page_select_label_startTime": "Start Time",
+                "_Page_select_label_endTime": "End Time",
+                "_Page_select_btn_today": "Today",
+                "_Page_select_btn_thisweek": "This week",
+                "_Page_select_btn_thismonth": "This Month",
+                "_Page_select_btn_alltime": "All Time",
+                "_page_select_headingselect": "Select",
+                "_page_select_selected_title": "Selected",
+                "_page_select_btn_bydevice": "By Device",
+                "_page_select_btn_bygroup": "By Group",
+                "_page_select_btn_bysubgroup": "By Subgroup",
+                "_page_select_btn_alldevices": "All Devices",
+                "_page_select_no_data_found": "No Data Found",
+                "_page_select_or": "OR",
+                "_page_select_select_allDevice": "Select All Devices",
+                "_page_select_driving_status": "Driving Status",
+                "_page_select_driving_status_all": "All",
+                "_page_select_driving_status_parked": "Parked",
+                "_page_select_driving_status_driving": "Driving",
+                "_page_select_btn_confirm": "Confirm",
+                "_page_select_btn_cancel": "Cancel",
+                "_page_genenaral_export_xls": "Export in XLS",
+                "_page_genenaral_export_pdf": "Export in PDF",
+                "_page_birds_map_view": "Map View",
+                "_page_birds_list_view": "List View",
+                "_page_birds_refresh_time": "Refresh Time",
+                "_page_birds_auto_refresh": "Auto Refresh",
+                "_page_birds_refreshingin": "Refreshing in",
+                "_page_default_sec": "secs",
+                "_page_birds_loading_data": "Loading data...",
+                "_page_default_info_title": "Information",
+                "_page_trips_exporttrip_title": "Export Trip",
+                "_page_yes_btn": "Yes",
+                "_page_no_btn": "No",
+                "_page_trips_intermediate_title": "Intermediate Points",
+                "_page_trips_route_compliance": "Set Route Compliance",
+                "_page_trips_explore_trips": "Explore Trip",
+                "_page_trips_btn_playback": "Playback",
+                "_page_trips_btn_click_playback": "Click here to view playback!",
+                "_page_tripdetail_speeding": "Speeding",
+                "_page_tripdetail_harshBrakes": "Harsh Brakes",
+                "_page_tripdetail_sudden_accl": "Sudden Acceleration",
+                "_page_tracking_battery_level": "Battery Level",
+                "_page_tracking_refresh": "Refresh",
+                "_page_select_specific_time": "Know your device's location @ specific time",
+                "_page_select_group": "Select Group",
+                "_page_fleetreport_analytics": "Analytics",
+                "_page_fleetreport_highlight_trips": "Highlighted Trips",
+                "_page_trips_btn_export": "Export",
+                "_page_genenaral_export_graphical_pdf": "Export in Graphical PDF",
+                "_page_reports_btn_export_image": "Export as Image",
+                "_page_reports_btn_export_as_pdf": "Export as PDF",
+                "_page_reports_btn_export_as_xls": "Export as XLS",
+                "_page_report_fleet_top_5_trips": "Top 5 Trips of",
+                "_page_reports_export_summary": "Export Summary",
+                "_page_reports_individual_kpi": "Total time behind the wheel",
+                "_page_reports_individual_kpi1": "Total Distance Driven",
+                "_page_reports_individual_kpi2": "Trips taken",
+                "_page_reports_individual_kpi3": "Your Top Speed",
+                "_page_reports_individual_kpi4": "Total fuel expenditure",
+                "_page_reports_individual_kpi5": "Total Idling Time",
+                "_page_reports_individual_kpi6": "Instances of speeding",
+                "_page_reports_individual_kpi7": "Percentage of driving time spent idle",
+                "_page_reports_analytics_title": "Analytics Reports",
+                "_page_reports_trip_reports_title": "Trip Reports",
+                "_page_reports_highlights_title": "Highlights",
+                "_page_reports_trips_report_title": "Top 5 Trips by Distance",
+                "_page_default_no_data_to_display": "No data to display",
+                "_page_reports_highlights_title_for": "Highlights for",
+                "_page_reports_maintenance_title1": "Cost Per",
+                "_page_reports_maintenance_title2": "Cost Per Month",
+                "_page_reports_maintenance_title3": "Cost Per Year",
+                "_page_reports_maintenance_title4": "Service Cost",
+                "_page_reports_maintenance_distance_title": "Distance",
+                "_page_reports_maintenance_idlingtime_title": "Idling Time",
+                "_page_createroute_btn_generateroute": "Generate Route",
+                "_page_createroute_btn_saveroute": "Save Route",
+                "_page_createroute_btn_clear": "Clear",
+                "_page_createroute_label_roundtrip": "Round trip",
+                "_page_createroute_hinttext_roundtrip": "If selected, your first location will be used as the end point of the journey",
+                "_page_createroute_label_optimiseroute": "Optimise route",
+                "_page_createroute_hinttext_optimiseroute": "If selected, the locations will be re-ordered to produce the shortest journey",
+                "_page_createroute_address_cnt": "Type in an address or click on the map to add a location",
+                "_page_createroute_waypoints_mandatory": "* You can create a route with maximum 25 way-points.",
+                "_page_createroute_waypoints_location_list": "Added locations will appear here",
+                "_page_manage_route_assign_info": "Assign",
+                "_page_manage_route_unassign_info": "Un Assign",
+                "_page_manage_route_edit_info": "Edit",
+                "_page_manage_route_delete_info": "Delete",
+                "_page_manage_routes_tableclm1": "#Routes",
+                "_page_manage_routes_tableclm2": "Route Name",
+                "_page_manage_routes_tableclm3": "Start Location",
+                "_page_manage_routes_tableclm4": "End Location",
+                "_page_manage_routes_tableclm5": "Stop Points",
+                "_page_manage_routes_tableclm6": "Total Distance",
+                "_page_manage_routes_tableclm7": "Created By",
+                "_page_manage_routes_tableclm8": "Updated By",
+                "_page_manage_routes_tableclm9": "Action",
+                "_page_manage_routes_tableclm10": "TripId",
+                "_page_manage_routes_tableclm11": "TripStartPoint",
+                "_page_manage_routes_tableclm12": "TripEndPoint",
+                "_page_manage_routes_tableclm13": "Vehicle Name",
+                "_page_manage_routes_tableclm14": "Assigned Date",
+                "_page_manage_routes_tableclm15": "Assigned By",
+                "_page_route_tabtype_custom_route": "Route Compliance applied from Custom Route",
+                "_page_route_tabtype_existing_trips": "Route Compliance applied from Existing Trips",
+                "_page_route_existing_no_route_compliance": "There are no Route Compliance",
+                "_page_route_existing_goto_trips_maximum3_trips_help": "Go to Trips > Choose any trip as Route Compliance to check the vehicle deviation form the trip route.<br> Maximum 3 different trips can be added as route compliance.",
+                "_page_group_create_new_group": "Create a New Group",
+                "_page_loadgroups_tableclm1": "Group Name",
+                "_page_loadgroups_tableclm2": "Group Username",
+                "_page_loadgroups_tableclm3": "Subgroup",
+                "_page_loadgroups_tableclm4": "Date Created",
+                "_page_group_permission_type": "Permission Type",
+                "_page_ok_btn": "Ok",
+                "_page_password_label": "Password",
+                "_page_confirm_password_label": "Confirm Password",
+                "_page_update_btn": "Update",
+                "_page_addaction_label_name": "Name",
+                "_page_create_btn": "Create",
+                "_page_subgroup_create_new_user": "Create a New User",
+                "_page_subgroup_selected_subgroup": "Selected Subgroup :",
+                "_page_subgroup_selected_subgroup_username": "Subgroup Username :",
+                "_page_subgroup_tblclm0": "User Name",
+                "_page_subgroup_tblclm1": "User Email",
+                "_page_subgroup_tblclm2": "Number of Devices",
+                "_page_subgroup_tblclm3": "Device names",
+                "_page_subgroup_tblclm4": "Time Created",
+                "_page_reset_pasword_btn": "Reset Password",
+                "_page_reset_success_message": "Success! New password has been sent to Email id.",
+                "_page_reset_popup_infomessage": "Are you sure, you want to reset the password ?",
+                "_page_driver_name_label": "Driver Name",
+                "_page_driver_create_linktop": "Create a New Driver",
+                "_page_manage_driver_tableclm1": "Driver ID",
+                "_page_manage_driver_tableclm2": "Fleet Id",
+                "_page_manage_driver_tableclm3": "Licence Number",
+                "_page_manage_driver_tableclm4": "Phone",
+                "_page_create_driver_bredcrumb": "Create Driver",
+                "_page_create_driver_success_msg": "Success! Driver created successfully.",
+                "_page_create_driver_label_expiry_date": "Expiry Date",
+                "_page_create_driver_label_address": "Address",
+                "_page_create_driver_label_phone": "Phone Number",
+                "_page_create_driver_label_emergency": "Emergency Contact Number",
+                "_page_create_driver_label_remarks": "Remarks",
+                "_page_create_driver_label_medical_condition": "Medical Conditions",
+                "_page_create_driver_label_driver_img": "Driver Image",
+                "_page_create_driver_label_licence_img": "Licence Image",
+                "_page_create_driver_bredcrumb": "Edit Driver",
+                "_page_edit_driver_success_msg": "Success! Driver Updated successfully.",
+                "_page_assign_driver_list_title": "Driver List",
+                "_page_assign_driver_vehicle_list_title": "Vehicle List",
+                "_page_assign_driver_like_to_assign": "Would you like to assign",
+                "_page_assign_driver_schedule_driver": "Schedule Driver",
+                "_page_assign_driver_optional": "optional",
+                "_page_assign_driver_start_date": "Start Date",
+                "_page_assign_driver_end_date": "End Date",
+                "_page_vehicle_schedule_breadcrumb": "Vehicle Schedule View",
+                "_page_scheduleview_vehicle_driver_info": "Driver Info",
+                "_page_scheduleview_vehicle_action": "Schedule Action",
+                "_page_driver_schedule_breadcrumb": "Driver's Schedule View",
+                "_page_driver_schedule_filter_by_name": "Filter By Driver Name",
+                "_page_driver_schedule_filter": "Filter",
+                "_page_driver_schedule_clear_filter": "Clear Filter",
+                "_page_driver_schedule_madatory": "By default only current and future dated Schedules is listed. You can refine the results by using filter option above.",
+                "_page_view_driver_schedule_view_driver_title": "View Driver Schedule",
+                "_page_manage_driver_schedule_manage_breadcrumb": "Manage Schedule View",
+                "_page_add_new_device": "Add a New Device",
+                "_page_single_device": "Single Device",
+                "_page_bulk_device": "Bulk Devices",
+                "_page_device_side_menu_2": "DEACTIVATED DEVICES",
+                "_page_device_side_menu_3": "UPLOAD HISTORY",
+                "_page_password_success": "Success! Password changed successfully.",
+                "_page_password_old": "Old Password",
+                "_page_password_new": "New Password",
+                "_page_password_confirm": "Confirm New Password",
+                "_page_alerts_success": "Success! Alerts updated successfully.",
+                "_page_alerts_save_btn": "Save",
+                "_page_default_select_device_breadcrumb": "Select Device",
+                "_page_vehicle_info_carname_label": "Car Name",
+                "_page_vehicle_info_brand_label": "Brand",
+                "_page_vehicle_info_yearofmake_label": "Year of Make",
+                "_page_vehicle_info_model_label": "Model",
+                "_page_vehicle_info_car_vinnumber": "Car Vin Number",
+                "_page_vehicle_info_car_platenumber": "Car Plate Number",
+                "_page_vehicle_info_fuel_type": "Fuel Type",
+                "_page_vehicle_info_fuel_type_petrol": "Petrol",
+                "_page_vehicle_info_fuel_type_diesel": "Diesel",
+                "_page_vehicle_info_fuel_type_gas": "LPG",
+                "_page_vehicle_info_seating_capacity": "Seating Capacity",
+                "_page_vehicle_info_vehicle_type": "Vehicle Type",
+                "_page_vehicle_info_select_type": "Select Type",
+                "_page_vehicle_info_others": "Others",
+                "_page_vehicle_info_type_others": "Vehicle Type Others",
+                "_page_vehicle_info_car_image": "Car Image",
+                "_page_alert_settings_add_emergency_contact": "Add Emergency Contacts",
+                "_page_alert_settings_set_speed_limit": "Set Speed Limit",
+                "_page_alert_settings_set_idle_time_threshold": "Set Idling Time Threshold",
+                "_page_alert_settings_set_driving_fatique_threshold": "Set Driving Fatigue Threshold",
+                "_page_alert_settings_set_vibration": "Set Vibration Alert",
+                "_page_alert_settings_set_up_route_compliance": "Set Up Route Compliance",
+                "_page_alert_settings_set_out_of_hours": "Set Out Of Hours",
+                "_Page_alert_settings_engine_start": "Engine Start",
+                "_Page_alert_settings_engine_stop": "Engine Stop",
+                "_page_alert_settings_add_people_desc": "In case of emergency, Send an SOS alert with your current location for assistance to two contacts. The SOS button is located on the top right of the home screen",
+                "_page_alert_settings_set_max_limit_desc": "Set-up the maximum speed limit for this car and we will alert you every time the car over speeds beyond the limit",
+                "_page_alert_settings_set_idle_time_desc": "Set-up the maximum idling limit for this car and we will alert you every time the car remains idle beyond the allowed limit",
+                "_page_alerts_settings_fatigue_desc": "Set-up the maximum allowed continuous driving hours for this car and we will alert you every time the car crossess the limit",
+                "_page_alerts_settings_outofhours_desc": "Set up the out of hours driving time for this vehicle and we will alert you every time when vehicle moved during the out of hours time frame",
+                "_page_avg_millage_label": "Avg Mileage",
+                "_page_fuel_success": "Success! Fuel Log updated successfully.",
+                "_page_service_success": "Success! Service Log updated successfully.",
+                "_page_driver_license_success": 'Success! Driver Licence Details updated successfully.',
+                "_page_insurance_success": 'Success! Insurance Details updated successfully.',
+                "_page_registration_success": 'Success! Registration Details updated successfully.',
+                "_page_fitness_success": 'Success! Fitness Details updated successfully.',
+                "_page_service_remind_create_btn": "Create a Reminder",
+                "_page_service_remind_Active_link": "Active",
+                "_page_service_remind_complete_link": "Complete",
+                "_page_service_remind_deleted_link": "Deleted",
+                "_page_session_info_text": "Coming Soon! This feature provides information about the session history for this fleet account and any current sessions",
+                "_page_warning_title": "Warning !",
+                "_page_single_fence_config_desc": "Configure the geo fence range by adjusting in the map below, you'll get an alert every time the vehicle moves in and out of range.",
+                "_page_single_fence_radius": "Radius",
+                "_page_select_driver_bredcrumb": "Select Driver",
+                "_page_select_driver_selected_driver": "Selected Driver",
+                "_page_odometer_reading": "Odometer Reading",
+                "_page_playback": "Playback",
+                "_page_playback_desc": "Click here to view playback!",
+                "_page_multiple_fence_limit_desc": "Maximum 5 Geo fences per device can be created.",
+                "_page_multiple_fence_manage_geo_fence": "Manage Geo Fence",
+                "_page_multiple_fence_create_fence": "Create a Geo Fence",
+                "_page_multiple_geo_fence_name": "Geo Fence Name",
+                "_page_multiple_fence_success_msg": "Success! Fence Name Updated.",
+                "_page_multiple_fence_title_fence_name": "Fence Name",
+                "_page_multiple_fence_add_btn": "Add",
+                "_page_multiple_fence_edit_geo_heading": "Edit Geo Fence",
+                "_page_multiple_fence_delete_geo_heading": "Delete Geo Fence",
+                "_page_multiple_fence_delete_geo_success_msg": "Success! Geo Fence Deleted.",
+                "_page_multiple_fence_delete_msg_desc": "Are you sure you want to delete this geo fence?",
+                "_page_multiple_fence_create_fence_heading": "Create Geo Fence",
+                "_page_multiple_fence_create_popup_limit_desc": "Multiple Geo fence limit reached! Please Remove existing fence and try again.",
+                "_page_multiple_fence_location_address_desc": "Please enter your location address or double click on map to create fence.",
+                "_page_multiple_fence_create_limit_fence_desc": "Multiple Geo fence limit reached! Please Remove existing fence and try again.",
+                "_page_multiple_fence_save_fence_btn": "Save Geo Fence",
+                "_page_multiple_fence_update_geo_fence": "Update Geo Fence",
+                "_page_birds_view_desc": "Showing all your fleet vehicles in map may take longer than usual, Please wait ..",
+                "_page_vechicles_empty": "No Vehicles Found",
+                "_page_default_access_desc": "You are not authorized to access this. Please contact fleet administrator.",
+                "_page_trips_details_Classify_trip": "Classify Trip",
+                "_page_trips_details_edit_place_name": "Edit Place Name",
+                "_page_trips_choose_trip_type": "Choose Trip Type",
+                "_page_service_reminders_success_msg": "Success! Reminder Completed successfully.",
+                "_page_tracking_range": 'Range',
+                "_page_tracking_runTime": 'Live RunTime',
+                "_page_tracking_distance": 'Live Distance',
+                "_page_submit_btn": "Submit",
+                "_page_location_empty": "Enter a location",
+                "_page_warning_title_alt": "Warning",
+                "_page_route_warning": "Before saving the route, Make sure to \"Generate Route\". Your changes will be saved only after \"Generate Route\" is completed.",
+                "_page_route_gen_save_btn": "Generate Route and Save",
+                "_page_route_maximum_waypoints": "You have reached the maximum way points allowed - 25.",
+                "_page_loading_map": "Loading map...",
+                "_page_route_name": "Route Name",
+                "_page_route_success": "Success! Route created successfully.",
+                "_page_route_hint": "Double click on the map to create custom route points.",
+                "_page_route_assign_success": "Success! Route assigned successfully.",
+                "_pafe_route_delete_success": "Success! Route deleted successfully.",
+                "_page_route_delete_question": "Are you sure you want to delete this Route?",
+                "_page_route_warning_desc": "Please make sure all the devices has been unassigned before deleting this Route.",
+                "_page_default_delete_route": "Delete Route",
+                "_page_unassign_route_success_message": "Success! Route Unassigned successfully.",
+                "_page_unassign_route_breadcrumb": "Unassign Route",
+                "_page_edit_route_breadcrumb": "Edit Route",
+                "_page_edit_route_success_message": "Success! Route updated successfully.",
+                "_page_default_print_direction": "Print Directions",
+                "_page_default_this_may_take_few_minutes": "This may take few minutes, Please wait until the export completed.",
+                "_page_default_first_300_trips_export": "Only the first 300 trips will be exported to",
+                "_page_dashboard_info_desc": "Update Fuel Price and Average Mileage under \"Settings > Vehicle > Fuel\". Add proper values to get accurate Fuel Reports.",
+                "_page_trips_details_normal_route_points": "Normal Route Points",
+                "_page_trips_details_deviation_from_expected": "Deviation from expected route",
+                "_page_trips_details_idling_points": "Idling Points",
+                "_page_alert_settings_add_Device_phone": "Add Device Phone Number",
+                "_page_manage_geo_fence_success_msg": "Success! Geo Fence Updated.",
+                "_page_create_geo_fence_success_msg": "Success! Geo Fence Created",
+                "_page_sos_engine_start_stop_title": "Engine Start/Stop",
+                "_page_sos_engine_start_success_msg": "Success! Please wait while engine start action can take a few minutes.",
+                "_page_sos_do_you_enable_engine_fuel": "Do you want to enable the engine fuel connection?",
+                "_page_sos_accept_btn": "Accept",
+                "_page_sos_amber_confirmation_desc": "By clicking on accept, you confirm that Amber Connect Ltd. will not be responsible for any loss or damage caused directly or indirectly by the action taken, and that you indemnify Amber Connect Ltd. in this regard.",
+                "_page_sos_reactivate_fuel_connection_desc": "To re-activate the fuel engine connection, please enter your login password and confirm. Please wait a few minutes before turning on your engine.",
+                "_page_sos_engine_stop_action_message": "Success! Please wait while engine stop action can take a few minutes.",
+                "_page_sos_cut_fuel_supply_engine_question": "Are you sure you want to cut fuel supply to the engine? Warning: This may cause damage to the engine.",
+                "_page_sos_note_stop_engine_vehicle_slows_desc": "Note: If you click on accept, the device will automatically stop the engine when the vehicle slows to less than 20 Km/h or stops. Are you sure you want to proceed?",
+                "_page_sos_final_stage_process_desc": "This is the final stage of the process to shut down your engine. If you are sure you want to proceed, please enter your login password and confirm.",
+                "_page_notification_first_500_alerts": "Only the first 500 alerts will be exported to",
+                "_page_notification_all_alerts_list": "All Alerts",
+                "_page_login_select_language": "Select Your Language",
+                "_page_language_settings_success": "Success! Language changed successfully.",
+                "_page_copyright": "© 2017 Amber Connect Ltd. All rights reserved."
+            },
+            "spanish": {
+                "_page_title": "Amber Parque Móvil",
+                "_page_left_menu_1": "Tablero",
+                "_page_left_menu_2": "Vista de Pájaro",
+                "_page_left_menu_3": "Viajes",
+                "_page_left_menu_4": "Seguimiento",
+                "_page_left_menu_4_1": "Seguimiento en vivo",
+                "_page_left_menu_4_2": "Seguimiento de",
+                "_page_left_menu_5": "Reportes",
+                "_page_left_menu_5_1": "Reporte del Parque Resumido",
+                "_page_left_menu_5_2": "Reporte individual",
+                "_page_left_menu_5_3": "Reporte comparativo",
+                "_page_left_menu_5_4": "Reporte de datos destacados",
+                "_page_left_menu_5_5": "Reporte de excepciones",
+                "_page_left_menu_5_6": "Reporte de mantenemiento",
+                "_page_left_menu_6": "Optimización de ruta",
+                "_page_left_menu_6_1": "Crear ruta",
+                "_page_left_menu_6_2": "Manejar ruta",
+                "_page_left_menu_6_3": "Cumplimiento de ruta",
+                "_page_left_menu_6_3_1": "Vehículos",
+                "_page_left_menu_6_3_2": "Rutas",
+                "_page_left_menu_7": "Gestión de grupos",
+                "_page_left_menu_8": "Gestión de conductores",
+                "_page_left_menu_8_1": "Manejar el conductor",
+                "_page_left_menu_8_2": "Asignar Conductor",
+                "_page_left_menu_8_3": "Manejar el horario",
+                "_page_left_menu_8_3_1": "Vehículo",
+                "_page_left_menu_8_3_2": "Conductor",
+                "_page_left_menu_8_4": "Reportes",
+                "_page_left_menu_8_4_1": "Reporte Resumido",
+                "_page_left_menu_8_4_2": "Reporte de la hoja de asistencia ",
+                "_page_left_menu_8_4_3": "Reporte de los viajes",
+                "_page_left_menu_9": "Dispositivos",
+                "_page_left_menu_9_1": "Gestión de Dispositivos",
+                "_page_left_menu_9_2": "Suscripción de dispositivo",
+                "_page_left_menu_10": "Alertas",
+                "_page_left_menu_11": "Configuración",
+                "_page_left_menu_11_1": "Perfil",
+                "_page_left_menu_11_1_1": "Cambiar contraseña",
+                "_page_left_menu_11_1_2": "Unidades",
+                "_page_left_menu_11_1_3": "Manegar Alertas",
+                "_page_left_menu_11_1_4": "Cambiar Idioma",
+                "_page_left_menu_11_2": "Vehículo",
+                "_page_left_menu_11_2_1": "Info del Vehículo",
+                "_page_left_menu_11_2_2": "Seguridad",
+                "_page_left_menu_11_2_3": "Cuentakilómetros",
+                "_page_left_menu_11_2_4": "Combustible",
+                "_page_left_menu_11_2_5": "Recordatorios de servicio",
+                "_page_left_menu_11_3": "Geo Fence",
+                "_page_left_menu_11_3_1": "Soltero Valla",
+                "_page_left_menu_11_3_2": "Múltiples Vallas",
+                "_page_left_menu_11_4": "Registro de gastos",
+                "_page_left_menu_11_4_1": "Registro de combustible",
+                "_page_left_menu_11_4_2": "Registro de servicios",
+                "_page_left_menu_11_5": "Documentos del Vehículo",
+                "_page_left_menu_11_5_1": "Licensia de Conductor",
+                "_page_left_menu_11_5_2": "Seguro",
+                "_page_left_menu_11_5_3": "Registro",
+                "_page_left_menu_11_5_4": "Aptitud",
+                "_page_left_menu_11_6": "Amber Shield",
+                "_page_left_menu_11_7": "Info de la Sesión",
+                "_page_left_menu_12": "Consejos",
+                "_page_left_menu_13": "Ayuda",
+                "_page_left_menu_14": "SOS",
+                "_page_left_menu_15": "Mute",
+                "_page_left_menu_16": "Apagar Mute",
+                "_page_left_menu_17": "Cerrar sesión",
+                "_page_group": "Grupos",
+                "_page_sub_group": "Subgrupos",
+                "_page_devices": "Dispositivos activos",
+                "_page_driver_login": "Nombres de usuarios de los Conductores",
+                "_page_kpi": "Indicadores clave de rendimiento :",
+                "_page_kpi_1": "Distancia total recorrida",
+                "_page_kpi_2": "Tiempo inactivo",
+                "_page_kpi_3": "Gastos de Combustible",
+                "_page_kpi_4": "tiempo total de funcionamiento del motor",
+                "_page_kpi_5": "Gastos en tiempo inactivo",
+                "_page_kpi_6": "Gastos total en mantenimiento",
+                "_page_kpi_7": "Comportamientos de Conducción",
+                "_page_kpi_8": "Freno repentino",
+                "_page_kpi_9": "Exceso de velocidad",
+                "_page_kpi_10": "Aceleración repentina",
+                "_page_kpi_11": "Tiempo inactivo",
+                "_page_dash_chart_title": "Reportes de vehículos individuales de los últimos 30 días",
+                "_page_dash_chart_title_1": "Consumo de combustible - Vehículos del Top 10",
+                "_page_dash_chart_title_1_1": "Configuraciones de combustible",
+                "_page_dash_chart_title_2": "Tiempo Inactivo - Vehículos del Top 10",
+                "_page_dash_chart_title_3": "Distancia recorrida - Vehículos del Top 10",
+                "_page_dash_chart_title_4": "Velocidad - Vehículos del Top 10",
+                "_page_dash_chart_title_5": "Tiempo de conducción - vehículos del top 10",
+                "_page_dash_chart_title_6": "Total de viajes - vehículos del top 10",
+                "_page_overall_title": "Reportes del Parque resumidos",
+                "_Page_overall_title1": "Distancia recorrida por día",
+                "_Page_overall_title2": "Número de viajes por día",
+                "_Page_overall_title3": "Tiempo inactivo total por día",
+                "_Page_overall_title4": "Tiempo de conducción máximo",
+                "_Page_overall_lastdays": "últimos 10 días",
+                "_page_default_page": "Inicio",
+                "_page_select_date_time": "Seleccionar la fecha y la hora",
+                "_Page_select_label_startTime": "Hora de inicio",
+                "_Page_select_label_endTime": "Hora de finalización",
+                "_Page_select_btn_today": "Hoy",
+                "_Page_select_btn_thisweek": "Esta semana",
+                "_Page_select_btn_thismonth": "Esta mes",
+                "_Page_select_btn_alltime": "De todos los tiempos",
+                "_page_select_headingselect": "Seleccionar",
+                "_page_select_selected_title": "Dispositivo",
+                "_page_select_btn_bydevice": "Por dispositivo",
+                "_page_select_btn_bygroup": "Por grupo",
+                "_page_select_btn_bysubgroup": "Por subgrupo",
+                "_page_select_btn_alldevices": "Todos los dispositivos",
+                "_page_select_no_data_found": "Datos no encontrados",
+                "_page_select_or": "O",
+                "_page_select_select_allDevice": "Seleccionar todos los dispositivos",
+                "_page_select_driving_status": "Situación de conducción",
+                "_page_select_driving_status_all": "Todos",
+                "_page_select_driving_status_parked": "Estacionado",
+                "_page_select_driving_status_driving": "Conduciendo",
+                "_page_select_btn_confirm": "Confirmar",
+                "_page_select_btn_cancel": "Cancelar",
+                "_page_genenaral_export_xls": "Exportar en XLS",
+                "_page_genenaral_export_pdf": "Esportar en formato de PDF",
+                "_page_birds_map_view": "Vista de mapa",
+                "_page_birds_list_view": "Vista de lista",
+                "_page_birds_refresh_time": "Tiempo de refresco",
+                "_page_birds_auto_refresh": "Refresco automático",
+                "_page_birds_refreshingin": "Refrescará en",
+                "_page_default_sec": "segundos",
+                "_page_birds_loading_data": "Cargando datos...",
+                "_page_default_info_title": "Información",
+                "_page_trips_exporttrip_title": "Exportar el viaje",
+                "_page_yes_btn": "Sí",
+                "_page_no_btn": "No",
+                "_page_trips_intermediate_title": "Puntos intermedios",
+                "_page_trips_route_compliance": "Establecer conformidad de ruta",
+                "_page_trips_explore_trips": "Explorar el viaje",
+                "_page_trips_btn_playback": "Repetición",
+                "_page_trips_btn_click_playback": "Haz click aquí para ver la repetición!",
+                "_page_tripdetail_speeding": "Exceso de velocidad",
+                "_page_tripdetail_harshBrakes": "Freno repentino",
+                "_page_tripdetail_sudden_accl": "Aceleración repentina",
+                "_page_tracking_battery_level": "Nivel de la batería",
+                "_page_tracking_refresh": "Refrescar",
+                "_page_select_specific_time": "Sabes la ubicación de tu dispositivo en un momento específico",
+                "_page_select_group": "Seleccionar el grupo",
+                "_page_fleetreport_analytics": "Análisis",
+                "_page_fleetreport_highlight_trips": "Viajes destacados",
+                "_page_trips_btn_export": "Exportar",
+                "_page_genenaral_export_graphical_pdf": "Exportar en formato de PDF gráfico",
+                "_page_reports_btn_export_image": "Exportar en formato de imagen",
+                "_page_reports_btn_export_as_pdf": "Exportar en formato de PDF",
+                "_page_reports_btn_export_as_xls": "Exportar en formato de XLS",
+                "_page_report_fleet_top_5_trips": "Viajes del Top 5 de",
+                "_page_reports_export_summary": "Exportar Resumen",
+                "_page_reports_individual_kpi": "Tiempo de conducción total",
+                "_page_reports_individual_kpi1": "Distancia recorrida total",
+                "_page_reports_individual_kpi2": "Viajes",
+                "_page_reports_individual_kpi3": "Tu velocidad máxima",
+                "_page_reports_individual_kpi4": "Gastos en combustible total",
+                "_page_reports_individual_kpi5": "Tiempo inactivo total",
+                "_page_reports_individual_kpi6": "Casos del exceso de velocidad",
+                "_page_reports_individual_kpi7": "Porcentaje de tiempo inactivo",
+                "_page_reports_analytics_title": "Reportes analiticos",
+                "_page_reports_trip_reports_title": "Reportes de los viajes",
+                "_page_reports_highlights_title": "destacados",
+                "_page_reports_trips_report_title": "Viajes de top 5 por distancia",
+                "_page_default_no_data_to_display": "No hay datos para mostrar",
+                "_page_reports_highlights_title_for": "Datos destacados por",
+                "_page_reports_maintenance_title1": "Costo por",
+                "_page_reports_maintenance_title2": "Costo por mes",
+                "_page_reports_maintenance_title3": "Costo por año",
+                "_page_reports_maintenance_title4": "Costo de servicio",
+                "_page_reports_maintenance_distance_title": "Distancia",
+                "_page_reports_maintenance_idlingtime_title": "Tiempo inactivo",
+                "_page_createroute_btn_generateroute": "Generar ruta",
+                "_page_createroute_btn_saveroute": "Guardar ruta",
+                "_page_createroute_btn_clear": "Despejar",
+                "_page_createroute_label_roundtrip": "Viaje de ida y vuelta",
+                "_page_createroute_hinttext_roundtrip": "Si seleccione, la ubicación inicial va a ser la ubicación final del viaje",
+                "_page_createroute_label_optimiseroute": "Optimizar ruta",
+                "_page_createroute_hinttext_optimiseroute": "Si seleccione, las ubicaciones serán en un orden que produce el viaje más corto",
+                "_page_createroute_address_cnt": "Introducir una dirección o haz click en el mapa para agregar una ubicación",
+                "_page_createroute_waypoints_mandatory": "* Puedes crear una ruta con un máximo de 25 puntos.",
+                "_page_createroute_waypoints_location_list": "Ubicaciones añadidos van a aparecer aquí",
+                "_page_manage_route_assign_info": "Asignar",
+                "_page_manage_route_unassign_info": "Eliminar la asignación",
+                "_page_manage_route_edit_info": "Editar",
+                "_page_manage_route_delete_info": "Eliminar",
+                "_page_manage_routes_tableclm1": "#Rutas",
+                "_page_manage_routes_tableclm2": "Nombre de la ruta",
+                "_page_manage_routes_tableclm3": "Ubicación inicial",
+                "_page_manage_routes_tableclm4": "Ubicación final",
+                "_page_manage_routes_tableclm5": "Puntos parados",
+                "_page_manage_routes_tableclm6": "Distancia total",
+                "_page_manage_routes_tableclm7": "Creado por",
+                "_page_manage_routes_tableclm8": "Actualizado por",
+                "_page_manage_routes_tableclm9": "Acción",
+                "_page_manage_routes_tableclm10": "Identificación del viaje",
+                "_page_manage_routes_tableclm11": "InicioDelViaje",
+                "_page_manage_routes_tableclm12": "PuntoFinalDelViaje",
+                "_page_manage_routes_tableclm13": "Nombre del vehículo",
+                "_page_manage_routes_tableclm14": "Fecha asignada",
+                "_page_manage_routes_tableclm15": "Asignada por",
+                "_page_route_tabtype_custom_route": "Cumplimiento de ruta aplicado de rutas a medida",
+                "_page_route_tabtype_existing_trips": "Cumplimiento de ruta aplicado de viajes existentes",
+                "_page_route_existing_no_route_compliance": "No hay cumplimientos de ruta",
+                "_page_route_existing_goto_trips_maximum3_trips_help": "Va a viajes - elige algún viaje para cumplimiento de ruta para examinar la diferencia entre esto y la ruta del viaje.<br> Al máximo 3 viajes diferentes pueden estar añadidos en la sección de cumplimiento de ruta",
+                "_page_group_create_new_group": "Crear un grupo nuevo",
+                "_page_loadgroups_tableclm1": "Nombre del Grupo",
+                "_page_loadgroups_tableclm2": "Nombre usuario del Grupo",
+                "_page_loadgroups_tableclm3": "Subgrupo",
+                "_page_loadgroups_tableclm4": "Fecha de creación",
+                "_page_group_permission_type": "Tipo del permiso",
+                "_page_ok_btn": "OK",
+                "_page_password_label": "Contraseña",
+                "_page_confirm_password_label": "Confirmar la contraseña",
+                "_page_update_btn": "Actualizar",
+                "_page_addaction_label_name": "Nombre",
+                "_page_create_btn": "Crear",
+                "_page_subgroup_create_new_user": "Crear un usuario nuevo",
+                "_page_subgroup_selected_subgroup": "Subgrupo seleccionado :",
+                "_page_subgroup_selected_subgroup_username": "Subgrupo Nombre de usuario :",
+                "_page_subgroup_tblclm0": "Nombre de Usuario",
+                "_page_subgroup_tblclm1": "Usuario Correo electrónico",
+                "_page_subgroup_tblclm2": "Número de dispositivos",
+                "_page_subgroup_tblclm3": "Nombres de los dispositivos",
+                "_page_subgroup_tblclm4": "Hora de creación",
+                "_page_reset_pasword_btn": "Reajustar contraseña",
+                "_page_reset_success_message": "¡Éxito! La contraseña nueva ha sido enviado al email.",
+                "_page_reset_popup_infomessage": "¿Estás seguro que quieras reajustar la contraseña?",
+                "_page_driver_name_label": "Nombre del conductor",
+                "_page_driver_create_linktop": "Crear un conductor nuevo",
+                "_page_manage_driver_tableclm1": "Identificación del Conductor",
+                "_page_manage_driver_tableclm2": "Identificación del parque",
+                "_page_manage_driver_tableclm3": "Nombre de la licensia",
+                "_page_manage_driver_tableclm4": "Número de teléfono",
+                "_page_create_driver_bredcrumb": "Crear conductor",
+                "_page_create_driver_success_msg": "¡Éxito! Has creado el conductor.",
+                "_page_create_driver_label_expiry_date": "Fecha de caducidad",
+                "_page_create_driver_label_address": "Dirección",
+                "_page_create_driver_label_phone": "Número de teléfono",
+                "_page_create_driver_label_emergency": "Número de contacto de emergencia",
+                "_page_create_driver_label_remarks": "Comentarios",
+                "_page_create_driver_label_medical_condition": "Condiciones médicas",
+                "_page_create_driver_label_driver_img": "Imagen del conductor",
+                "_page_create_driver_label_licence_img": "Imagen de la licensia",
+                "_page_create_driver_bredcrumb": "Editar conductor",
+                "_page_edit_driver_success_msg": "¡Éxito! Has creado el conductor.",
+                "_page_assign_driver_list_title": "Lista de conductores",
+                "_page_assign_driver_vehicle_list_title": "Lista de vehículos",
+                "_page_assign_driver_like_to_assign": "Quieras asignar a",
+                "_page_assign_driver_schedule_driver": "Programar conductor",
+                "_page_assign_driver_optional": "Opcional",
+                "_page_assign_driver_start_date": "Fecha de inicio",
+                "_page_assign_driver_end_date": "Fecha de finalización",
+                "_page_vehicle_schedule_breadcrumb": "Vista de horario de dispositivos",
+                "_page_scheduleview_vehicle_driver_info": "Información del conductor",
+                "_page_scheduleview_vehicle_action": "Programar acción",
+                "_page_driver_schedule_breadcrumb": "Vista de horario del conductor",
+                "_page_driver_schedule_filter_by_name": "Filtrar por nombre del conductor",
+                "_page_driver_schedule_filter": "Filtrar",
+                "_page_driver_schedule_clear_filter": "Remover el filtro",
+                "_page_driver_schedule_madatory": "Por defecto, sólo horarios del futuro y presente están en la lista. Puedes refinar los resultados por la opción del filtro arriba.",
+                "_page_view_driver_schedule_view_driver_title": "Ver el horario del conductor",
+                "_page_manage_driver_schedule_manage_breadcrumb": "Gestionar la vista de horarios",
+                "_page_add_new_device": "Agregar un dispositivo nuevo",
+                "_page_single_device": "Dispositivo soltero",
+                "_page_bulk_device": "Dispositivos a granel",
+                "_page_device_side_menu_2": "Dispositivos desactivados",
+                "_page_device_side_menu_3": "Historía de subidas",
+                "_page_password_success": "¡Exito! Has cambiado la contraseña",
+                "_page_password_old": "Contraseña vieja",
+                "_page_password_new": "Contraseña nueva",
+                "_page_password_confirm": "Confirma la contraseña nueva",
+                "_page_alerts_success": "¡Éxito! Has cambiado las unidades.",
+                "_page_alerts_save_btn": "Guardar",
+                "_page_default_select_device_breadcrumb": "Seleccionar dispositivo",
+                "_page_vehicle_info_carname_label": "Nombre del carro",
+                "_page_vehicle_info_brand_label": "La marca",
+                "_page_vehicle_info_yearofmake_label": "Año de fabricación",
+                "_page_vehicle_info_model_label": "Modelo",
+                "_page_vehicle_info_car_vinnumber": "Número de VIN",
+                "_page_vehicle_info_car_platenumber": "Número de matrícula",
+                "_page_vehicle_info_fuel_type": "Tipo de combustible",
+                "_page_vehicle_info_fuel_type_petrol": "Gasolina",
+                "_page_vehicle_info_fuel_type_diesel": "Diésel",
+                "_page_vehicle_info_fuel_type_gas": "Gas de petróleo líquido",
+                "_page_vehicle_info_seating_capacity": "Capacidad de asiento",
+                "_page_vehicle_info_vehicle_type": "Tipo de vehículo",
+                "_page_vehicle_info_select_type": "Seleccionar tipo",
+                "_page_vehicle_info_others": "Otros",
+                "_page_vehicle_info_type_others": "Vehicle Type Others",
+                "_page_vehicle_info_car_image": "Imagen del vehículo",
+                "_page_alert_settings_add_emergency_contact": "Agregar contactos de emergencia",
+                "_page_alert_settings_set_speed_limit": "Configurar el límite de velocidad",
+                "_page_alert_settings_set_idle_time_threshold": "Configurar el umbral de tiempo inactivo",
+                "_page_alert_settings_set_driving_fatique_threshold": "Configurar el umbral de fatiga de conducción",
+                "_page_alert_settings_set_vibration": "Configurar alerta de vibración",
+                "_page_alert_settings_set_up_route_compliance": "Configurar conformidad de ruta",
+                "_page_alert_settings_set_out_of_hours": "Configurar afuera de horas",
+                "_Page_alert_settings_engine_start": "Principio del motor",
+                "_Page_alert_settings_engine_stop": "Parada del motor",
+                "_page_alert_settings_add_people_desc": "En el caso de una emergencia, envia una alerta de SOS con tu ubicación corriente a los dos contactos de emergencia. El botón de SOS está ubicado a la mano derecha a la cima de la pagina",
+                "_page_alert_settings_set_max_limit_desc": "Configura la velocidad máxima para el carro y te alertarémos cada vez el carro excede el límite de velocidad",
+                "_page_alert_settings_set_idle_time_desc": "Configura el límite de tiempo inactivo para el carro y te alertarémos cada vez que el carro se queda inactivo más allá del límite",
+                "_page_alerts_settings_fatigue_desc": "Configura el máximo de horas de conducción continuadas para el carro y te alertarémos cada vez que excede el límite",
+                "_page_alerts_settings_outofhours_desc": "Configura tiempo afuera de las horas de conducción para el carro y te alertarémos cada vez que el carro se mueve durante este periodo",
+                "_page_avg_millage_label": "Millaje promedio",
+                "_page_fuel_success": "¡Éxito! Has actualizado el registro de combustible.",
+                "_page_service_success": "¡Éxito! Has actualizado el registro de servicios.",
+                "_page_driver_license_success": '¡Éxito! Has actualizado los detalles de la licencia del conductor.',
+                "_page_insurance_success": '¡Éxito! has actualizado los detalles de seguro.',
+                "_page_registration_success": '¡Éxitor! Has actualizado los detalles de matriculación.',
+                "_page_fitness_success": '¡Éxito! Has actualizado los detalles de aptitud.',
+                "_page_service_remind_create_btn": "Crear recordatorio",
+                "_page_service_remind_Active_link": "Activo",
+                "_page_service_remind_complete_link": "Completado",
+                "_page_service_remind_deleted_link": "eliminado",
+                "_page_session_info_text": "¡Próximamente! Esta función proporciona información sobre el historial de la sesión de esta cuenta de flota y las sesiones actuales",
+                "_page_warning_title": "Advertencia !",
+                "_page_single_fence_config_desc": "Configurar el alcance del geo fence por el mapa abajo, recibirás una alerta cada vez que el vehículo cruza la valla",
+                "_page_single_fence_radius": "Radio",
+                "_page_select_driver_bredcrumb": "Seleccionar conductor",
+                "_page_select_driver_selected_driver": "Conductor seleccionado",
+                "_page_odometer_reading": "lectura de odómetro",
+                "_page_playback": "Repetición",
+                "_page_playback_desc": "Haz click aquí para ver la repetición",
+                "_page_multiple_fence_limit_desc": "Un máximo de 5 geo fences se pueden estar creados.",
+                "_page_multiple_fence_manage_geo_fence": "Gestionar geo fence",
+                "_page_multiple_fence_create_fence": "Crear un geo fence",
+                "_page_multiple_geo_fence_name": "Nombre de geo fence",
+                "_page_multiple_fence_success_msg": "¡Éxito! El nombre de la valla ha actualizado.",
+                "_page_multiple_fence_title_fence_name": "Nombre de valla",
+                "_page_multiple_fence_add_btn": "Agregar",
+                "_page_multiple_fence_edit_geo_heading": "Editar geo fence",
+                "_page_multiple_fence_delete_geo_heading": "eliminar geo fence",
+                "_page_multiple_fence_delete_geo_success_msg": "¡Éxito! Has eliminado el geo fence",
+                "_page_multiple_fence_delete_msg_desc": "Estás seguro que quieres eliminar este geo fence",
+                "_page_multiple_fence_create_fence_heading": "Crear geo fence",
+                "_page_multiple_fence_create_popup_limit_desc": "Has alcanzado el límite de geo fence! Por favor remueve la valla existente y intenta otra vez",
+                "_page_multiple_fence_location_address_desc": "Por favor introduzca la dirección donde te ubicas o haz clic doble en el mapa para crear una valla",
+                "_page_multiple_fence_create_limit_fence_desc": "Has alcanzado el límite de geo fence! Por favor remueve la valla existente y intenta otra vez",
+                "_page_multiple_fence_save_fence_btn": "Guardar geo fence",
+                "_page_multiple_fence_update_geo_fence": "Actualizar geo fence",
+                "_page_birds_view_desc": "Mostrando todos los vehículos en el mapa puede usar más tiempo que normal, por favor, espera ..",
+                "_page_vechicles_empty": "Ningún vehículo encontrado",
+                "_page_default_access_desc": "No está autorizado a acceder a esto. Póngase en contacto con el administrador de flota.",
+                "_page_trips_details_Classify_trip": "Clasificar el viaje",
+                "_page_trips_details_edit_place_name": "Editar el nombre del lugar",
+                "_page_trips_choose_trip_type": "Elige el tipo de viaje",
+                "_page_service_reminders_success_msg": "¡Éxito! Has completado el recordatorio.",
+                "_page_tracking_range": 'Gama',
+                "_page_tracking_runTime": 'TiempoActivo en Vivo',
+                "_page_tracking_distance": 'Distancia en Vivo',
+                "_page_submit_btn": "Enviar",
+                "_page_location_empty": "Introducir una ubicación",
+                "_page_warning_title_alt": "Advertencia",
+                "_page_route_warning": "Antes de guardar la ruta, genera la ruta. Los cambios guardarán sólo después de la generación de la ruta ha completado",
+                "_page_route_gen_save_btn": "Generar ruta y guardarla",
+                "_page_route_maximum_waypoints": "Has alcanzado el número máximo de puntos de paso permitidos - 25.",
+                "_page_loading_map": "Cargando mapa...",
+                "_page_route_name": "Nombre de la ruta",
+                "_page_route_success": "¡Éxito! Has creado la ruta.",
+                "_page_route_hint": "Haz doble click en la mapa para crear puntos a medida.",
+                "_page_route_assign_success": "¡Éxito! Ruta asignada con éxito.",
+                "_pafe_route_delete_success": "¡Éxito! Has eliminado la ruta con éxito..",
+                "_page_route_delete_question": "¿Estás seguro que quieras eliminar esta ruta?",
+                "_page_route_warning_desc": "Asegurate que todos los dispositivos no tienen asignaciones antes de eliminar esta ruta.",
+                "_page_default_delete_route": "Eliminar la ruta",
+                "_page_unassign_route_success_message": "¡Éxito! La asignación de la ruta ha estado eliminado.",
+                "_page_unassign_route_breadcrumb": "Eliminar la asignación de la ruta",
+                "_page_edit_route_breadcrumb": "Editar la ruta",
+                "_page_edit_route_success_message": "¡Éxito! Ruta actualizada con éxito.",
+                "_page_default_print_direction": "Impresar Indicaciones",
+                "_page_default_this_may_take_few_minutes": "Esto puede tardar pocos minutos, espere por favor hasta que la exportación completada.",
+                "_page_default_first_300_trips_export": "Sólo los primeros 300 viajes se exportarán a",
+                "_page_dashboard_info_desc": "Acualizar precio de combustible y Millaje promedio por Configuraciones - Vehículo - Combustible. Introduce valores correctos para recibir reportes precisos.",
+                "_page_trips_details_normal_route_points": "Puntos de ruta normales",
+                "_page_trips_details_deviation_from_expected": "Desvación de ruta esperada",
+                "_page_trips_details_idling_points": "Puntos de inactividad",
+                "_page_alert_settings_add_Device_phone": "Agrega el número de teléfono del dispositivo",
+                "_page_manage_geo_fence_success_msg": "¡Éxito! El GeoFence ha actualizado.",
+                "_page_create_geo_fence_success_msg": "¡Éxito! Has creado el geo fence",
+                "_page_sos_engine_start_stop_title": "Arranque/parada del motor",
+                "_page_sos_engine_start_success_msg": "Success! Please wait while engine start action can take a few minutes.",
+                "_page_sos_do_you_enable_engine_fuel": "Do you want to enable the engine fuel connection?",
+                "_page_sos_accept_btn": "Aceptar",
+                "_page_sos_amber_confirmation_desc": "Al hacer clic en aceptar, usted confirma que Amber Connect Ltd. no será responsable de ninguna pérdida o daño causado directa o indirectamente por la acción tomada, y que indemnizar a Amber Connect Ltd. en este sentido.",
+                "_page_sos_reactivate_fuel_connection_desc": "To re-activate the fuel engine connection, please enter your login password and confirm. Please wait a few minutes before turning on your engine.",
+                "_page_sos_engine_stop_action_message": "Success! Please wait while engine stop action can take a few minutes.",
+                "_page_sos_cut_fuel_supply_engine_question": "¿Está seguro que quiere cortar el suministro de combustible al motor? El Warning:This puede causar daño al motor.",
+                "_page_sos_note_stop_engine_vehicle_slows_desc": "Nota: Si hace clic en aceptar, el dispositivo detendrá automáticamente el motor cuando el vehículo se desacelere a menos de 20 km/h o se detenga. ¿está seguro de que desea continuar?",
+                "_page_sos_final_stage_process_desc": "Esta es la etapa final del proceso para apagar el motor. Si está seguro de que desea continuar, por favor ingrese su contraseña de login y confirme.",
+                "_page_notification_first_500_alerts": "Sólo los primeros 500 alertas se exportarán a",
+                "_page_notification_all_alerts_list": "Todas alertas",
+                "_page_login_select_language": "Seleccionar el idioma",
+                "_page_language_settings_success": "¡Éxito! El idioma se cambió exitosamente.",
+                "_page_copyright": "© 2017 Amber Connect Ltd. Todos los derechos reservados."
+            }
+        };
+
+        set_lang = function(dictionary) {
+            $("[data-translate]").html(function() {
+                var key = $(this).data("translate");
+                if (dictionary.hasOwnProperty(key)) {
+                    return dictionary[key];
+                }
+            });
+            $("input[data-translate]").attr('placeholder', function() {
+                var key = $(this).data("translate");
+                if (dictionary.hasOwnProperty(key)) {
+                    return dictionary[key];
+                }
+            });
+        };
+
+        set_lang(dictionary.english);
+    });
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-83920713-4', 'auto');
+    ga('send', 'pageview');
+    </script>
+    <script>
+    if (window.module) module = window.module;
+    </script>
+</body>
+
+</html>
